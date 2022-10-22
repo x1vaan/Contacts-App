@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+ }
+
+ .img {
+    position: relative;
+    left: 3%;
+    font-size: 70px;
+    cursor: pointer;
+    color: #1DB954;
+ }
+ .span{
+    position: absolute;
+    left: 7%;
+    font-family: 'Reem Kufi Ink', sans-serif;
+    color: #ccd6f6;
+    font-size: 28px;
+    letter-spacing: 1px;
+ }
+ .nav {
+     background-color: #333;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: rgba(50, 50, 93, 0.23) 0 30px 30px -20px;
+     width: 100%;
+ }
+ 
+ .navlist ul{
+     display: flex;
+     color: #ccd6f6;
+     font-family: 'Reem Kufi Ink', sans-serif;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .list li {
+     list-style: none;
+     position: relative;
+     padding: 0 1rem;
+     margin: 0 20px;
+     font-size: 1.2em;
+     cursor: pointer;
+     transition: 0.4s;
+     letter-spacing: 0.5px;
+     text-decoration: none;
+     border-radius: 5px;
+ } 
+ .list li::before{
+     content: "";
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     width: 0;
+     height: 2px;
+     background-color: #1DB954;
+     transition: width 0.25s ease-out;
+ }
+ 
+ .list li:hover::before{
+     width: 100%;
+ }
+ 
+ .button {
+   position: absolute;
+   top: 1.3rem;
+   right: 1rem;
+   display: none;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 30px;
+   height: 21px;
+ }
+ 
+ .button .bar{
+     height: 3px;
+     width: 100%;
+     background-color: #fff;
+     border-radius: 10px;
+ }
+ .navlistactive {
+     width: 100%;
+     color: #ffffff;
+     font-family: 'Reem Kufi Ink', sans-serif;
+ }
+ 

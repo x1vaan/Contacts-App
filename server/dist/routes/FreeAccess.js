@@ -43,7 +43,7 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const isValid = yield bcrypt_1.default.compare(password, usuario.password);
         if (isValid) {
             const token = jsonwebtoken_1.default.sign({ email: email, id: usuario._id, name: usuario.name }, "" + SECRET, { expiresIn: '24h' });
-            return res.status(200).send(token);
+            return res.status(200).json(token);
         }
         else {
             return res.status(401).send('Password not valid');

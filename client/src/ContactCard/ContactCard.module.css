@@ -1,0 +1,63 @@
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin: 10vh 10vh;
+    width: 26vw;
+    height: 260px;
+    background-color: #17181c;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+}
+  .p1{
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+    font-size: 30px;
+  }
+  
+  .p2{
+    position: absolute;
+    color: #ffffff;
+    font-size: 25px;
+    top: 70px;
+    text-align: center;
+  }
+
+  .edit {
+    position: absolute;
+    padding: 8px 8px;
+    bottom: 3vh;
+    left: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    transition: 0.4s;
+    color: #17181c;
+    border: 3px solid #676767;
+    background-color: #676767;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.4s;
+  } .edit:hover{
+    color:#676767 ;
+    background-color:#17181c ;
+  }
+
+  .delete{
+    position: absolute;
+    padding: 8px 8px;
+    bottom: 3vh;
+    right: 50px;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.4s;
+    color: #17181c;
+    border: 3px solid#D7415D;
+    background-color: #D7415D;
+    border-radius: 8px;
+    cursor: pointer;
+  } 
+  .delete:hover {
+    background-color: #17181c;
+    color: #D7415D;
+  }
