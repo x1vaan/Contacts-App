@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const User_1 = __importDefault(require("../models/User"));
 const router = (0, express_1.Router)();
-router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.put('/addcontact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
         const id = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
@@ -26,6 +26,17 @@ router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function
             }
         });
         res.status(200).send('Contact added');
+    }
+    catch (error) {
+        res.status(500).send(error.message);
+    }
+}));
+router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _b;
+    try {
+        const id = (_b = req.user) === null || _b === void 0 ? void 0 : _b.id;
+        const contacts = yield User_1.default.findById(id).select('contacts');
+        res.status(200).send(contacts === null || contacts === void 0 ? void 0 : contacts.contacts);
     }
     catch (error) {
         res.status(500).send(error.message);

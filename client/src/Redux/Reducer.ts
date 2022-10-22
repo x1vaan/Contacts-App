@@ -1,16 +1,19 @@
 import { GET_CONTACTS } from "./Actions";
 
+interface Icontact {
+    name: string;
+    phone: string;
+}
 
-const initialState = {
-
+let initialState : {
+    contacts : Icontact[]
 }
 
 export default function Reducer (state= initialState, action:any): any {
    switch(action.type){
     case GET_CONTACTS: {
         return {
-            ...state,
-            contactos : action.payload
+            contacts : action.payload
         }
     }
    }

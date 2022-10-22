@@ -1,9 +1,10 @@
 import express, { NextFunction, Request, Response } from 'express'
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
-import jwt, { JwtPayload } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import FreeAcess from './routes/FreeAccess'
 import AuthRoutes from './routes/AuthRoutes'
+import cors from 'cors'
 
 const app = express();
 
@@ -17,6 +18,7 @@ mongoose.connect(MONGO_URI)
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors({origin: '*'}))
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true');

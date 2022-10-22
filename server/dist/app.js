@@ -9,6 +9,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const FreeAccess_1 = __importDefault(require("./routes/FreeAccess"));
 const AuthRoutes_1 = __importDefault(require("./routes/AuthRoutes"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 dotenv_1.default.config();
 const { MONGO_URI, SECRET } = process.env;
@@ -17,6 +18,7 @@ mongoose_1.default.connect(MONGO_URI)
     .catch((error) => console.log(error));
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
+app.use((0, cors_1.default)({ origin: '*' }));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true');
