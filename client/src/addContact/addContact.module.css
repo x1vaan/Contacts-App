@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #17202A;
+    width: 600px;
+    height: 250px;
+    border-radius: 8px;
+}
+
+.form{
+    width: 100%;
+}
+
+ .name{
+    height: 35px;
+    width: 80%;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    background-color: #8892b0;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    border-radius: 4px;
+    transition: 0.4s;
+ }
+
+ .name:hover{
+    background-color: #ffffff;
+ }
+
+ .phone{
+    height: 35px;
+    width: 80%;
+    margin-bottom: 35px;
+    background-color: #8892b0;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    border-radius: 4px;
+    transition: 0.4s;
+ }
+ .phone:hover {
+    background-color: #ffffff;
+ }
+
+ .add{
+    display: block;
+    margin: auto;
+    margin-top: 1px;
+    height: 35px;
+    width: 80%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    font-size: 17px;
+    color: #1DB954;
+    border: 3px solid#1DB954;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.4s;
+ }
+
+ .add:hover{
+    background-color: #1DB954;
+    color: #fff;
+ }

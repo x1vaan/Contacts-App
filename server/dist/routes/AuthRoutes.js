@@ -20,6 +20,9 @@ router.put('/addcontact', (req, res) => __awaiter(void 0, void 0, void 0, functi
     try {
         const id = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
         const { name, phone } = req.body;
+        console.log(name);
+        console.log(phone);
+        console.log(id);
         yield User_1.default.updateOne({ _id: id }, {
             $push: {
                 contacts: { name, phone }

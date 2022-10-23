@@ -3,6 +3,7 @@ import ContactCard from '../ContactCard/ContactCard';
 import cssH from './Home.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getcontacts } from '../Redux/Actions';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home (): JSX.Element {
 interface Icontact {
@@ -14,11 +15,18 @@ interface Icontact {
 interface state {
 contacts : Icontact[]
 }
+ const navigate = useNavigate()
  const dispatch = useDispatch()
  const contacts = useSelector((state: state) => state?.contacts)
 
 useEffect(()=>{
-    dispatch(getcontacts())
+    const token = window.localStorage.getItem('token');
+    if(!token){
+      navigate('/register')
+    }
+    else{
+      dispatch(getcontacts())
+    }
 },[contacts])
     return (
         <div className={cssH.containerHome}>
