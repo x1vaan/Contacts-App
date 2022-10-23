@@ -25,7 +25,7 @@ router.put('/addcontact', (req, res) => __awaiter(void 0, void 0, void 0, functi
                 contacts: { name, phone }
             }
         });
-        res.status(200).send('Contact added');
+        res.status(201).send('Contact added');
     }
     catch (error) {
         res.status(500).send(error.message);
@@ -37,6 +37,22 @@ router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function
         const id = (_b = req.user) === null || _b === void 0 ? void 0 : _b.id;
         const contacts = yield User_1.default.findById(id).select('contacts');
         res.status(200).send(contacts === null || contacts === void 0 ? void 0 : contacts.contacts);
+    }
+    catch (error) {
+        res.status(500).send(error.message);
+    }
+}));
+router.delete('/deleteContact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _c, _d;
+    try {
+        const id = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id;
+        const { _id } = req.body;
+        let contacts = yield User_1.default.findById(id).select('contacts');
+        let contactsFiltered = (_d = contacts === null || contacts === void 0 ? void 0 : contacts.contacts) === null || _d === void 0 ? void 0 : _d.filter(contact => contact._id.toString() !== _id);
+        yield User_1.default.updateOne({ _id: id }, {
+            contacts: contactsFiltered
+        });
+        res.status(200).json(contactsFiltered);
     }
     catch (error) {
         res.status(500).send(error.message);

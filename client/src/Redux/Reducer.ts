@@ -1,4 +1,4 @@
-import { GET_CONTACTS } from "./Actions";
+import { DELETE_CONTACTS, GET_CONTACTS } from "./Actions";
 
 interface Icontact {
     name: string;
@@ -12,6 +12,11 @@ let initialState : {
 export default function Reducer (state= initialState, action:any): any {
    switch(action.type){
     case GET_CONTACTS: {
+        return {
+            contacts : action.payload
+        }
+    }
+    case DELETE_CONTACTS: {
         return {
             contacts : action.payload
         }

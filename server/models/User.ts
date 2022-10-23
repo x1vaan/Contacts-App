@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 interface Contacts {
     name : string;
     phone : string;
+    _id: string;
 }
 
 interface Iuser extends Document{

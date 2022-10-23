@@ -25,7 +25,7 @@ useEffect(()=>{
             {
                contacts ? 
                 contacts.map(contact => {
-                 return <ContactCard name={contact.name} phone={contact.phone} key={contact._id}/>
+                 return <ContactCard name={contact.name} phone={contact.phone} key={contact._id} id={contact._id}/>
                 })
                 : ''
             }
