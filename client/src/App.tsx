@@ -8,6 +8,8 @@ import Login from './Login/Login';
 import Home from './Home/Home';
 import Navbar from './Navbar/Navbar';
 import Addcontact from './addContact/addContact';
+import ProtectedRoutes from './ProtectedRoutes';
+import OtherRoutes from './otherRoutes/otherRoutes';
 
 function App() {
   return (
@@ -16,8 +18,12 @@ function App() {
       <Route path='/' element={<Landing/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
-      <Route path='/home' element={<> <Navbar/> <Home/> </>}/>
-      <Route path='/addContact' element={<Addcontact/>}/>
+
+      <Route element={<ProtectedRoutes/>}>
+         <Route path='/home' element={<> <Navbar/> <Home/> </>}/> 
+         <Route path='/addContact' element={<Addcontact/>}/>
+      </Route>
+    <Route path='*' element={<OtherRoutes/>} />
      </Routes>
     </div>
   );
