@@ -20,9 +20,6 @@ router.put('/addcontact', (req, res) => __awaiter(void 0, void 0, void 0, functi
     try {
         const id = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
         const { name, phone } = req.body;
-        console.log(name);
-        console.log(phone);
-        console.log(id);
         yield User_1.default.updateOne({ _id: id }, {
             $push: {
                 contacts: { name, phone }
@@ -60,5 +57,10 @@ router.delete('/deleteContact', (req, res) => __awaiter(void 0, void 0, void 0, 
     catch (error) {
         res.status(500).send(error.message);
     }
+}));
+router.put('/editContact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _e;
+    const id = (_e = req.user) === null || _e === void 0 ? void 0 : _e.id;
+    const { name, phone, _id } = req.body;
 }));
 exports.default = router;

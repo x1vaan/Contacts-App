@@ -18,20 +18,21 @@ contacts : Icontact[]
  const navigate = useNavigate()
  const dispatch = useDispatch()
  const contacts = useSelector((state: state) => state?.contacts)
+ const token = window.localStorage.getItem('token')
+ 
+useEffect(() => {
+    if(!token){
+        navigate('/')
+      }
+},[token])
 
 useEffect(()=>{
-    const token = window.localStorage.getItem('token');
-    if(!token){
-      navigate('/register')
-    }
-    else{
-      dispatch(getcontacts())
-    }
+    dispatch(getcontacts())
 },[contacts])
     return (
         <div className={cssH.containerHome}>
-            {
-               contacts ? 
+            {   
+               contacts ? contacts.length === 0 ? <p className={cssH.noContacts}>You do not have any contacts yet</p> : 
                 contacts.map(contact => {
                  return <ContactCard name={contact.name} phone={contact.phone} key={contact._id} id={contact._id}/>
                 })

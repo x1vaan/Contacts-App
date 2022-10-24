@@ -7,9 +7,6 @@ router.put('/addcontact', async (req: Request,res: Response):Promise<any | void>
     try {
         const id = req.user?.id
         const {name, phone} = req.body
-        console.log(name)
-        console.log(phone)
-        console.log(id)
         await User.updateOne({_id : id}, {
             $push: {
                 contacts: {name,phone}
@@ -46,4 +43,8 @@ router.delete('/deleteContact', async(req: Request,res: Response):Promise<any | 
     }
 })
 
+router.put('/editContact', async (req:Request,res:Response):Promise<any | void> => {
+    const id = req.user?.id
+    const {name,phone,_id} = req.body
+});
 export default router

@@ -31,8 +31,7 @@ const userSchema = new Schema<Iuser>({
     contacts : [{
         name: String,
         phone:{
-            type: String,
-            unique : true
+            type: String
         }
     }]
 })

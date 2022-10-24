@@ -3,7 +3,7 @@
     justify-content: center;
     position: relative;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: #17202A;
     width: 600px;
     height: 250px;
@@ -65,4 +65,12 @@
  .add:hover{
     background-color: #1DB954;
     color: #fff;
+ }
+
+ .addContact {
+   font-family: 'Reem Kufi Ink', sans-serif;
+    color: #ccd6f6;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 40px;
  }

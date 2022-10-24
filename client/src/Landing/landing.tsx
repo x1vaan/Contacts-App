@@ -6,7 +6,12 @@ export default function Landing (): JSX.Element {
   const navigate = useNavigate()
 
   const onclick = ():void => {
+    const token = window.localStorage.getItem('token')
+    if(token){
+        navigate('home')
+    }else{
       navigate('/register')
+    }
   }
     return (
         <div className={css.container}>

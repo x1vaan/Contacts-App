@@ -1,6 +1,5 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Navcss from './Navbar.module.css';
-import logo from '../Images/ContactsApp4.svg';
 import { useNavigate } from 'react-router-dom';
 import {MdContactPage} from 'react-icons/md'
 
@@ -23,7 +22,7 @@ export default function Navbar (): JSX.Element {
     }
     return(
         <nav className={Navcss.nav}>
-      <MdContactPage className={Navcss.img} onClick={onimage}/> <span className={Navcss.span}>Contacts App</span>
+      <MdContactPage className={Navcss.img} onClick={onimage}/> <span className={Navcss.span} onClick={onimage}>Contacts App</span>
       <a href="#" className={Navcss.button} onClick={onclick}>
      <span className={Navcss.bar}></span>
      <span className={Navcss.bar}></span>
@@ -33,7 +32,7 @@ export default function Navbar (): JSX.Element {
       <div className={Navcss.navlist}>
       <ul className={Navcss.list}>
         <li onClick={onAdd}>Add contact</li> 
-        <li onClick={onclickProfile}>My profile</li>
+        <li onClick={onclickProfile}>Log out</li>
       </ul>
       </div>
 

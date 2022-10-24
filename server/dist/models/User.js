@@ -31,8 +31,7 @@ const userSchema = new mongoose_1.Schema({
     contacts: [{
             name: String,
             phone: {
-                type: String,
-                unique: true
+                type: String
             }
         }]
 });

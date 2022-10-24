@@ -1,4 +1,4 @@
-import React,{useState, ChangeEvent, FormEvent} from 'react';
+import React,{useState, ChangeEvent, FormEvent, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import cssR from './Register.module.css'
 import axios from 'axios';
@@ -47,6 +47,14 @@ const onsubmit = async (e: FormEvent) => {
       })
     }
 }
+const token = window.localStorage.getItem('token')
+
+useEffect(()=> {
+  if(token){
+    navigate('/home')
+  }
+},[token])
+
     return (
         <div className={cssR.container}>
          <form onSubmit={onsubmit} className={cssR.form}>

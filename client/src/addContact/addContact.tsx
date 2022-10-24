@@ -50,6 +50,7 @@ export default function Addcontact (): JSX.Element {
 
     return (
         <div>
+            <p className={cssA.addContact}>Add a new Contact!</p>
          <div className={cssA.container}>
          <form onSubmit={onsubmit} className={cssA.form}>
             <input type="text" className={cssA.name} placeholder='Name' name='name' value={input.name} onChange={onchange}/>
