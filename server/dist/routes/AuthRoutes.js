@@ -60,7 +60,18 @@ router.delete('/deleteContact', (req, res) => __awaiter(void 0, void 0, void 0, 
 }));
 router.put('/editContact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _e;
-    const id = (_e = req.user) === null || _e === void 0 ? void 0 : _e.id;
-    const { name, phone, _id } = req.body;
+    try {
+        const id = (_e = req.user) === null || _e === void 0 ? void 0 : _e.id;
+        const { name, phone, _id } = req.body;
+        yield User_1.default.updateOne({
+            _id: id, contacts: { $elemMatch: { _id: _id } }
+        }, {
+            $set: { 'contacts.$.name': name, 'contacts.$.phone': phone }
+        });
+        res.status(200).json('Contact edited');
+    }
+    catch (error) {
+        res.status(500).send(error.message);
+    }
 }));
 exports.default = router;

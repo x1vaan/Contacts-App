@@ -44,7 +44,18 @@ router.delete('/deleteContact', async(req: Request,res: Response):Promise<any | 
 })
 
 router.put('/editContact', async (req:Request,res:Response):Promise<any | void> => {
-    const id = req.user?.id
-    const {name,phone,_id} = req.body
+    try {
+        const id = req.user?.id
+        const {name,phone,_id} = req.body
+        await User.updateOne({
+        _id:id, contacts : { $elemMatch : {_id : _id}}
+    }, {
+      $set : {'contacts.$.name': name, 'contacts.$.phone': phone}
+    })
+        res.status(200).json('Contact edited')
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
 });
+
 export default router
