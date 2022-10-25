@@ -10,6 +10,7 @@ import Navbar from './Navbar/Navbar';
 import Addcontact from './addContact/addContact';
 import ProtectedRoutes from './ProtectedRoutes';
 import OtherRoutes from './otherRoutes/otherRoutes';
+import EditContact from './editContact/editContact';
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
       <Route element={<ProtectedRoutes/>}>
          <Route path='/home' element={<> <Navbar/> <Home/> </>}/> 
          <Route path='/addContact' element={<Addcontact/>}/>
+         <Route path='/edit/:id' element={<EditContact/>}/>
       </Route>
+      
     <Route path='*' element={<OtherRoutes/>} />
      </Routes>
     </div>

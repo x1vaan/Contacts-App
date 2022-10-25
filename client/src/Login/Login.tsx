@@ -32,8 +32,8 @@ const onsubmit = async (e: FormEvent) => {
           email : '',
           password : ''
          })
-    window.localStorage.setItem('token', data)
     if(status === 200) {
+      window.localStorage.setItem('token', data)
         navigate('/home')
     }
     } catch (error: any) {

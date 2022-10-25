@@ -39,7 +39,6 @@ export default function Addcontact (): JSX.Element {
         navigate('/home')
        }
        } catch (error: any) {
-        console.log(error.message)
          alert(error.message)
          setInput({
             name: '',
