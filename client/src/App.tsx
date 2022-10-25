@@ -11,8 +11,22 @@ import Addcontact from './addContact/addContact';
 import ProtectedRoutes from './ProtectedRoutes';
 import OtherRoutes from './otherRoutes/otherRoutes';
 import EditContact from './editContact/editContact';
+import {useEffect} from 'react'
 
 function App() {
+  const hours = 12
+  let now = new Date().getTime()
+  let loginTime = window.localStorage.getItem('loginTime')
+
+  useEffect(()=>{
+    if(loginTime === null){
+
+    }else {
+      if(now - Number(loginTime) > hours*60*60*1000){
+        window.localStorage.clear()
+      }
+    }
+  },[])
   return (
     <div className="App">
      <Routes>

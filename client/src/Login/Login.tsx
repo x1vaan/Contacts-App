@@ -33,6 +33,8 @@ const onsubmit = async (e: FormEvent) => {
           password : ''
          })
     if(status === 200) {
+      let now = new Date().getTime()
+      window.localStorage.setItem('loginTime', now.toString())
       window.localStorage.setItem('token', data)
         navigate('/home')
     }
