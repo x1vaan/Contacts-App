@@ -74,3 +74,7 @@
     margin-top: 5vh;
     font-size: 40px;
  }
+
+ ::placeholder{
+   color: #010203;
+}

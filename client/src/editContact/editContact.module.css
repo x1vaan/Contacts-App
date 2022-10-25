@@ -75,3 +75,7 @@
     font-size: 40px;
     letter-spacing: 2px;
  }
+
+ ::placeholder{
+   color: #010203;
+}
