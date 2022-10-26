@@ -7,7 +7,7 @@ export const DELETE_CONTACTS:string = 'DELETE_CONTACTS'
 export const getcontacts = (): any => {
     let token = window.localStorage.getItem('token')
    return function (dispatch: any): any{
-    return axios.get('http://localhost:3001/auth/contacts', {
+    return axios.get('/auth/contacts', {
         headers : {
             Authorization: "Bearer " + token
         }
@@ -21,7 +21,7 @@ export const getcontacts = (): any => {
 export const deleteContacts = (id:string):any => {
     let token = window.localStorage.getItem('token')
     return function (dispatch: any): any{
-     return axios.delete('http://localhost:3001/auth/deleteContact',{
+     return axios.delete('/auth/deleteContact',{
          headers : {
              Authorization: "Bearer " + token
          },

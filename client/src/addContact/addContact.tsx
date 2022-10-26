@@ -22,7 +22,7 @@ export default function Addcontact (): JSX.Element {
        try {
          const {status} = await axios({
             method : 'put', 
-            url:'http://localhost:3001/auth/addcontact',
+            url:'/auth/addcontact',
             headers: {
                 Authorization : "Bearer " + token
             },

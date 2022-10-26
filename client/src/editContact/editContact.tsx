@@ -23,7 +23,7 @@ const onsubmit = async(e: FormEvent) => {
     try {
         const {status} = await axios({
             method : 'put', 
-            url:'http://localhost:3001/auth/editContact',
+            url:'/auth/editContact',
             headers: {
                 Authorization : "Bearer " + token
             },

@@ -25,7 +25,7 @@ const onlogin = ():void => {
 const onsubmit = async (e: FormEvent) => {
     e.preventDefault()
    try {
-       const user =  await axios.post('http://localhost:3001/register',{
+       const user =  await axios.post('/register',{
            name : input.name,
            email : input.email,
            password : input.password

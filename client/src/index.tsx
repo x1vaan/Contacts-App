@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './Redux/Store';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://contacts-app-back-production.up.railway.app/' || 'http://localhost:3001';
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
