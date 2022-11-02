@@ -11,7 +11,7 @@
  }
  .span{
     position: absolute;
-    left: 3.5%;
+    left: 60px;
     font-family: 'Reem Kufi Ink', sans-serif;
     color: #ffffff;
     font-size: 28px;
@@ -51,21 +51,6 @@
  .list li:hover{
     color: #1DB954;
  }
-
- /* .list li::before{
-     content: "";
-     position: absolute;
-     left: 0;
-     bottom: 0;
-     width: 0;
-     height: 2px;
-     background-color: #7ebcb9;
-     transition: width 0.25s ease-out;
- }
- 
- .list li:hover::before{
-     width: 100%;
- } */
  
  .button {
    position: absolute;
@@ -90,3 +75,31 @@
      font-family: 'Reem Kufi Ink', sans-serif;
  }
  
+ @media (max-width: 560px){
+    .button{
+        display: flex;
+    }
+    .navlist {
+        display: none;
+        width: 100%;
+    }
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navlist ul{
+      width: 100%;
+      flex-direction: column;
+    }
+    .navlist li {
+        text-align: center;
+        
+    }
+    .navlist.active {
+        display: flex;
+    }
+    .img {
+        position: relative;
+        left: 1%;
+    }
+ }

@@ -30,7 +30,7 @@ export default function Navbar (): JSX.Element {
      <span className={Navcss.bar}></span>
       </a>
 
-      <div className={Navcss.navlist}>
+      <div className={ buttonState === 'active' ? Navcss.navlistactive : Navcss.navlist}>
       <ul className={Navcss.list}>
         <li onClick={onAdd}>Add contact</li> 
         <li onClick={onclickProfile}>Log out</li>
