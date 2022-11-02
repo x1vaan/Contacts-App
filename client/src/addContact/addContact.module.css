@@ -78,3 +78,10 @@
  ::placeholder{
    color: #010203;
 }
+
+@media (max-width : 600px) {
+   .container{
+       width: 80%;
+   }
+
+}

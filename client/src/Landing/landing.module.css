@@ -23,6 +23,7 @@
     color: #ccd6f6;
 }
 
+
 .button {
     position: absolute;
     top: 50%;
@@ -40,4 +41,14 @@
 .button:hover{
     background-color: #1DB954;
     color: #fff;
+}
+
+@media (max-width : 415px){
+  .p2{
+    top: 40%;
+  }
+
+  .button{
+    top: 60%;
+  }
 }

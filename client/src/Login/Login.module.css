@@ -57,7 +57,7 @@
  .signup{
     display: block;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 2%;
     height: 35px;
     width: 170px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -77,7 +77,7 @@
 
 .p1{
     position: absolute;
-    top: 34vh;
+    top: 62%;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 100;
     font-size: 24px;
@@ -90,6 +90,19 @@
     font-weight: 100;
     font-size: 24px;
     color: #1DB954;
-    top: 39vh;
+    top: 70%;
     cursor: pointer;
+}
+
+@media (max-width : 600px) {
+    .container{
+        width: 80%;
+    }
+
+}
+
+@media (max-width : 360px) {
+    .p2 {
+        top: 80%;
+    }
 }
