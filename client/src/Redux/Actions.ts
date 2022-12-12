@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export const GET_CONTACTS:string = 'GET_CONTACTS';
-export const DELETE_CONTACTS:string = 'DELETE_CONTACTS'
-
+export const DELETE_CONTACTS:string = 'DELETE_CONTACTS';
+export const SORT_DESCENDING:string = 'SORT_DESCENDING';
+export const SORT_ASCENDING:string = 'SORT_ASCENDING';
 
 export const getcontacts = (): any => {
     let token = window.localStorage.getItem('token')
@@ -34,3 +35,16 @@ export const deleteContacts = (id:string):any => {
      })
     }
 }
+
+export const sortAscending = ():any => {
+    return {
+        type : SORT_ASCENDING
+    }
+}
+
+export const sortDescending = ():any => {
+    return {
+        type: SORT_DESCENDING
+    }
+}
+

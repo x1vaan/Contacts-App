@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Navcss from './Navbar.module.css';
 import { useNavigate } from 'react-router-dom';
 import {MdContactPage} from 'react-icons/md'
+import {AiOutlineSortAscending, AiOutlineSortDescending} from 'react-icons/ai'
 
 export default function Navbar (): JSX.Element {
     const navigate = useNavigate()
@@ -29,7 +30,6 @@ export default function Navbar (): JSX.Element {
      <span className={Navcss.bar}></span>
      <span className={Navcss.bar}></span>
       </a>
-
       <div className={ buttonState === 'active' ? Navcss.navlistactive : Navcss.navlist}>
       <ul className={Navcss.list}>
         <li onClick={onAdd}>Add contact</li> 

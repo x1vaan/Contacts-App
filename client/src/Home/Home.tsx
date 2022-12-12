@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ContactCard from '../ContactCard/ContactCard';
 import cssH from './Home.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getcontacts } from '../Redux/Actions';
 import { useNavigate } from 'react-router-dom';
+import Sort from '../sort/Sort';
 
 export default function Home (): JSX.Element {
 interface Icontact {
@@ -13,13 +14,14 @@ interface Icontact {
 }
 
 interface state {
-contacts : Icontact[]
+contacts : Icontact[],
 }
  const navigate = useNavigate()
  const dispatch = useDispatch()
  const contacts = useSelector((state: state) => state?.contacts)
  const token = window.localStorage.getItem('token')
- 
+ const [status, setStatus] = useState('not done')
+
 useEffect(() => {
     if(!token){
         navigate('/')
@@ -27,10 +29,15 @@ useEffect(() => {
 },[token])
 
 useEffect(()=>{
-    dispatch(getcontacts())
+    if(status === 'not done') {
+        dispatch(getcontacts())
+        setStatus('done')
+    }
 },[contacts])
+
     return (
         <div className={cssH.containerHome}>
+            <Sort/>
             {   
                contacts ? contacts.length === 0 ? <p className={cssH.noContacts}>You do not have any contacts yet</p> : 
                 contacts.map(contact => {

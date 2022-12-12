@@ -39,8 +39,8 @@
  .list li {
      list-style: none;
      position: relative;
-     padding: 0 1rem;
-     margin: 0 20px;
+     padding: 0.7rem;
+     margin: 0 25px;
      font-size: 1.1em;
      cursor: pointer;
      transition: 0.4s;
@@ -50,6 +50,7 @@
  } 
  .list li:hover{
     color: #1DB954;
+    background-color: hsl(246, 18%, 15%, 0.4);
  }
  
  .button {
