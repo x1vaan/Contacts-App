@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getcontacts } from '../Redux/Actions';
 import { useNavigate } from 'react-router-dom';
 import Sort from '../sort/Sort';
+import Loading from '../Loading/Loading';
 
 export default function Home (): JSX.Element {
 interface Icontact {
@@ -43,7 +44,7 @@ useEffect(()=>{
                 contacts.map(contact => {
                  return <ContactCard name={contact.name} phone={contact.phone} key={contact._id} id={contact._id}/>
                 })
-                : ''
+                : <Loading/>
             }
         </div>
     )
