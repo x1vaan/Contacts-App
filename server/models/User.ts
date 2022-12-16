@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 interface Contacts {
     name : string;
-    phone : string;
+    phone : number;
     _id: string;
 }
 
@@ -29,9 +29,13 @@ const userSchema = new Schema<Iuser>({
         unique : true
     },
     contacts : [{
-        name: String,
+        name: {
+            type: String,
+            required: true
+        },
         phone:{
-            type: String
+            type: Number,
+            unique: true
         }
     }]
 })

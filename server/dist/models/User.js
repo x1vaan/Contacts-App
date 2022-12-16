@@ -29,9 +29,13 @@ const userSchema = new mongoose_1.Schema({
         unique: true
     },
     contacts: [{
-            name: String,
+            name: {
+                type: String,
+                required: true
+            },
             phone: {
-                type: String
+                type: Number,
+                unique: true
             }
         }]
 });
