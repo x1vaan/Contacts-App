@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/Store';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://contacts-app-back-production.up.railway.app/' || 'http://localhost:3001';
+axios.defaults.baseURL = 'https://contacts-app-back.onrender.com/';
 
 
 
