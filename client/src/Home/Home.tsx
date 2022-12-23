@@ -38,7 +38,10 @@ useEffect(()=>{
 
     return (
         <div className={cssH.containerHome}>
-            <Sort/>
+            {
+                contacts ? contacts.length === 0 ? '' : <Sort/> : ''
+            }
+            
             {   
                contacts ? contacts.length === 0 ? <p className={cssH.noContacts}>You do not have any contacts yet</p> : 
                 contacts.map(contact => {
