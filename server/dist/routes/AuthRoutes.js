@@ -16,25 +16,31 @@ const express_1 = require("express");
 const User_1 = __importDefault(require("../models/User"));
 const router = (0, express_1.Router)();
 router.put('/addcontact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+    var _a, _b;
     try {
         const id = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
         const { name, phone } = req.body;
-        yield User_1.default.updateOne({ _id: id }, {
-            $push: {
-                contacts: { name, phone }
-            }
-        });
-        res.status(201).send('Contact added');
+        const repeatedContact = yield User_1.default.findById(id);
+        if (!((_b = repeatedContact === null || repeatedContact === void 0 ? void 0 : repeatedContact.contacts) === null || _b === void 0 ? void 0 : _b.some(contact => contact.phone == phone))) {
+            yield User_1.default.updateOne({ _id: id }, {
+                $push: {
+                    contacts: { name, phone }
+                }
+            });
+            res.status(201).send('Contact added');
+        }
+        else {
+            res.status(409).send('Two contacts with the same phone');
+        }
     }
     catch (error) {
         res.status(500).send(error.message);
     }
 }));
 router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _b;
+    var _c;
     try {
-        const id = (_b = req.user) === null || _b === void 0 ? void 0 : _b.id;
+        const id = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id;
         const contacts = yield User_1.default.findById(id).select('contacts');
         res.status(200).send(contacts === null || contacts === void 0 ? void 0 : contacts.contacts);
     }
@@ -43,12 +49,12 @@ router.get('/contacts', (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 }));
 router.delete('/deleteContact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _c, _d;
+    var _d, _e;
     try {
-        const id = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id;
+        const id = (_d = req.user) === null || _d === void 0 ? void 0 : _d.id;
         const { _id } = req.body;
         let contacts = yield User_1.default.findById(id).select('contacts');
-        let contactsFiltered = (_d = contacts === null || contacts === void 0 ? void 0 : contacts.contacts) === null || _d === void 0 ? void 0 : _d.filter(contact => contact._id.toString() !== _id);
+        let contactsFiltered = (_e = contacts === null || contacts === void 0 ? void 0 : contacts.contacts) === null || _e === void 0 ? void 0 : _e.filter(contact => contact._id.toString() !== _id);
         yield User_1.default.updateOne({ _id: id }, {
             contacts: contactsFiltered
         });
@@ -59,9 +65,9 @@ router.delete('/deleteContact', (req, res) => __awaiter(void 0, void 0, void 0, 
     }
 }));
 router.put('/editContact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _e;
+    var _f;
     try {
-        const id = (_e = req.user) === null || _e === void 0 ? void 0 : _e.id;
+        const id = (_f = req.user) === null || _f === void 0 ? void 0 : _f.id;
         const { name, phone, _id } = req.body;
         yield User_1.default.updateOne({
             _id: id, contacts: { $elemMatch: { _id: _id } }

@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const Contact_1 = __importDefault(require("./Contact"));
 const userSchema = new mongoose_1.Schema({
     name: {
         type: String
@@ -28,16 +29,7 @@ const userSchema = new mongoose_1.Schema({
         required: true,
         unique: true
     },
-    contacts: [{
-            name: {
-                type: String,
-                required: true
-            },
-            phone: {
-                type: Number,
-                unique: true
-            }
-        }]
+    contacts: [Contact_1.default]
 });
 userSchema.pre('save', function (next) {
     return __awaiter(this, void 0, void 0, function* () {
