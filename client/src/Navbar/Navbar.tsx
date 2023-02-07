@@ -18,6 +18,7 @@ export default function Navbar (): JSX.Element {
     const onclickProfile = () => {
        window.localStorage.removeItem('token')
        window.localStorage.removeItem('loginTime')
+       navigate('/')
     }
     const onAdd = ():void => {
       navigate('/addContact')
