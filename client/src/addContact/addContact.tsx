@@ -5,9 +5,9 @@ import axios from "axios";
 
 export default function Addcontact (): JSX.Element {
     const navigate = useNavigate()
-    const[input,setInput] = useState({
+    const[input,setInput] = useState<{name: string; phone: number}>({
         name: '',
-        phone: ''
+        phone: 0,
     });
 
     const onchange = (e: ChangeEvent<HTMLInputElement>):void => {
@@ -20,7 +20,7 @@ export default function Addcontact (): JSX.Element {
        e.preventDefault();
        const token = window.localStorage.getItem('token')
        try {
-         const {status} = await axios({
+         var {status,data} = await axios({
             method : 'put', 
             url:'/auth/addcontact',
             headers: {
@@ -34,15 +34,16 @@ export default function Addcontact (): JSX.Element {
        if(status === 201) {
         setInput({
             name: '',
-            phone: ''
+            phone: 0
         })
+        alert(data)
         navigate('/home')
        }
        } catch (error: any) {
-         alert(error.message)
+         alert(data)
          setInput({
             name: '',
-            phone: ''
+            phone: 0
         })
        }
     }
